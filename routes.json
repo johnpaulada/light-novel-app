@@ -1,0 +1,5 @@
+{
+  "/api/*": "/$1",
+  "/novels/:id/chapters": "/chapters?novel=:id",
+  "/novels/:id/chapters/:chapId": "/chapters/:chapId"
+}
