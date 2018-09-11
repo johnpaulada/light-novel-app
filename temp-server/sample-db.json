@@ -4,13 +4,15 @@
       "id": 0,
       "title": "Genjitsushugisha No Oukokukaizouki",
       "author": "どぜう丸",
-      "chapters": [
-        {
-          "id": 1,
-          "title": "The King Arrives",
-          "content": "> Yuusha yo!"
-        }
-      ]
+      "chapters": [0]
+    }
+  ],
+  "chapters": [
+    {
+      "id": 0,
+      "title": "The King Arrives",
+      "content": "> Yuusha yo!",
+      "novel": 0
     }
   ]
 }
