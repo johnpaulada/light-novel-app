@@ -1,12 +1,22 @@
 import React, { PureComponent } from "react";
-import { LandingContainer, MainTitle } from "../../components";
+import {
+  LandingContainer,
+  LandingTitleContainer,
+  MainTitle
+} from "../../components";
 
 class Landing extends PureComponent {
   render() {
     return (
       <LandingContainer>
-        <MainTitle>Awesome Stuff!</MainTitle>
-        <h2>Other Awesome Stuff</h2>
+        <header>
+          <LandingTitleContainer>
+            <MainTitle>La=Nobe</MainTitle>
+            <MainTitle fontSize="1.5em">
+              Light Novels for Everyone to Enjoy!
+            </MainTitle>
+          </LandingTitleContainer>
+        </header>
       </LandingContainer>
     );
   }
