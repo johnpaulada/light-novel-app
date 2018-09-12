@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 
-class Novel extends PureComponent {
+class Chapter extends PureComponent {
   render() {
     return <div />;
   }
 }
 
-export default Novel;
+export default Chapter;
