@@ -9,4 +9,5 @@ export default styled.ol`
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 70px;
   grid-gap: 15px;
+  margin-top: 20px;
 `;

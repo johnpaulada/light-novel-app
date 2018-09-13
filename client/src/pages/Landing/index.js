@@ -12,7 +12,7 @@ import { fetchHotNovels } from "../../redux/actions";
 const { REACT_APP_API_URL: API_URL } = process.env;
 
 class Landing extends PureComponent {
-  componentWillMount() {
+  componentDidMount() {
     const novelsUrl = `${API_URL}/novels`;
     this.props.fetchHotNovels(novelsUrl);
   }

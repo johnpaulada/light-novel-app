@@ -32,5 +32,6 @@ const hotNovels = [
 ];
 
 export default {
-  hotNovels
+  hotNovels,
+  selectedNovel: {}
 };
