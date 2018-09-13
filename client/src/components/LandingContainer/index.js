@@ -3,6 +3,8 @@ import FullContainer from "../FullContainer";
 import background from "./assets/background.png";
 
 export default styled(FullContainer)`
+  display: flex;
+  justify-content: space-around;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 20px;
@@ -22,6 +24,7 @@ export default styled(FullContainer)`
   background-position: center;
 
   @media (max-width: 412px) {
+    flex-direction: column;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr;
   }
