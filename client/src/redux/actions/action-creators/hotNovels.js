@@ -13,7 +13,7 @@ export const failHotNovelsRequest = () => ({
   type: FETCH_HOT_NOVELS_FAILURE
 });
 
-export const receiveHotNovels = hotNovels => ({
+export const receiveHotNovels = (hotNovels = []) => ({
   type: FETCH_HOT_NOVELS_SUCCESS,
   hotNovels
 });

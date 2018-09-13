@@ -23,8 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open",
-    "mocha": "NODE_OPTIONS='--experimental-modules' mocha"
+    "cypress:open": "cypress open"
   },
   "devDependencies": {
     "cypress": "^3.1.0"

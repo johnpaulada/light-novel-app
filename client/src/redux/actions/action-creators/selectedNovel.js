@@ -13,7 +13,7 @@ export const failNovelRequest = () => ({
   type: GET_NOVEL_FAILURE
 });
 
-export const receiveNovel = selectedNovel => ({
+export const receiveNovel = (selectedNovel = null) => ({
   type: GET_NOVEL_SUCCESS,
   selectedNovel
 });

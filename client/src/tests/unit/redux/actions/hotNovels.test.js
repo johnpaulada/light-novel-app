@@ -21,6 +21,22 @@ describe("Hot Novels Receive", () => {
     const action = receiveHotNovels();
     expect(action).toHaveProperty("type", FETCH_HOT_NOVELS_SUCCESS);
   });
+
+  it("Should have hotNovels key", () => {
+    const action = receiveHotNovels();
+    expect(action).toHaveProperty("hotNovels");
+  });
+
+  it("Should have hotNovels be an empty list if not given an argument", () => {
+    const action = receiveHotNovels();
+    expect(action.hotNovels).toMatchObject([]);
+  });
+
+  it("Should have hotNovels be the same as the argument", () => {
+    const novels = [{ title: "Overlord" }];
+    const action = receiveHotNovels(novels);
+    expect(action.hotNovels).toMatchObject(novels);
+  });
 });
 
 describe("Hot Novels Failure", () => {
