@@ -1,32 +1,29 @@
 import fetch from "cross-fetch";
-
 import {
-  FETCH_HOT_NOVELS_REQUEST,
   FETCH_HOT_NOVELS_FAILURE,
+  FETCH_HOT_NOVELS_REQUEST,
   FETCH_HOT_NOVELS_SUCCESS
 } from "../action-types";
 
-const { REACT_APP_API_URL: API_URL } = process.env;
-
-const requestHotNovels = () => ({
+export const requestHotNovels = () => ({
   type: FETCH_HOT_NOVELS_REQUEST
 });
 
-const failHotNovelsRequest = () => ({
+export const failHotNovelsRequest = () => ({
   type: FETCH_HOT_NOVELS_FAILURE
 });
 
-const receiveHotNovels = hotNovels => ({
+export const receiveHotNovels = hotNovels => ({
   type: FETCH_HOT_NOVELS_SUCCESS,
   hotNovels
 });
 
-export function fetchHotNovels() {
+export function fetchHotNovels(url) {
   return async dispatch => {
     dispatch(requestHotNovels());
 
     try {
-      const response = await fetch(`${API_URL}/novels`);
+      const response = await fetch(url);
       const data = await response.json();
       dispatch(receiveHotNovels(data));
     } catch (err) {

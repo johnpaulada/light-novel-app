@@ -9,10 +9,12 @@ import {
   ShowcaseCard
 } from "../../components";
 import { fetchHotNovels } from "../../redux/actions";
+const { REACT_APP_API_URL: API_URL } = process.env;
 
 class Landing extends PureComponent {
-  componentDidMount() {
-    this.props.fetchHotNovels();
+  componentWillMount() {
+    const novelsUrl = `${API_URL}/novels`;
+    this.props.fetchHotNovels(novelsUrl);
   }
 
   novelToCard = ({ id, cover }) => (
@@ -47,7 +49,7 @@ const mapStateToProps = ({ hotNovels }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchHotNovels: () => dispatch(fetchHotNovels())
+  fetchHotNovels: url => dispatch(fetchHotNovels(url))
 });
 
 export default connect(

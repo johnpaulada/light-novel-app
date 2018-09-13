@@ -32,6 +32,5 @@ const hotNovels = [
 ];
 
 export default {
-  hotNovels,
-  fak: "test"
+  hotNovels
 };
