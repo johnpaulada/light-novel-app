@@ -34,7 +34,7 @@ class Chapter extends Component {
 
   renderContent = (content, props) => {
     return [content]
-      .map(contentText => contentText.split("\n"))
+      .map(contentText => contentText.split(/[\n\r]+/g))
       .map(contentText => {
         return contentText.map((text, index) => {
           return (

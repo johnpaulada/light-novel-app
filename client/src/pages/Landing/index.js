@@ -37,7 +37,7 @@ class Landing extends PureComponent {
           </LandingTitleContainer>
         </header>
         <section>
-          <Showcase>{hotNovels.map(this.novelToCard)}</Showcase>
+          <Showcase id="showcase">{hotNovels.map(this.novelToCard)}</Showcase>
         </section>
       </LandingContainer>
     );
