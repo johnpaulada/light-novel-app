@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { styledProp } from "../utils";
 
 export default styled.div`
-  width: 60vw;
+  width: ${styledProp("width", "60vw")};
   min-width: 300px;
   display: flex;
   flex-direction: column;

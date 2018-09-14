@@ -8,4 +8,5 @@ export default styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${styledProp("backgroundColor", "#FAFAFA")};
+  transition: all 0.25s ease-in;
 `;

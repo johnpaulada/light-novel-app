@@ -43,14 +43,16 @@ class Novel extends PureComponent {
 
   render() {
     const { selectedNovel } = this.props;
-    const { title, cover } = selectedNovel;
 
     return (
       <NovelContainer backgroundColor="#f4f7fb">
-        <Banner height="25vh" image={cover} />
+        <Banner
+          height="25vh"
+          image={selectedNovel ? selectedNovel.cover : ""}
+        />
         <CenterConstraint>
           <MainTitle color="#272d33" fontSize="3.375em" textAlign="center">
-            {title}
+            {selectedNovel ? selectedNovel.title : "Loading..."}
           </MainTitle>
           <ChapterList>{this.renderChapterList(selectedNovel)}</ChapterList>
         </CenterConstraint>
