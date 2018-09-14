@@ -10,5 +10,9 @@ export default styled.button`
   font-family: Ubuntu, sans-serif;
   letter-spacing: 1px;
   font-weight: 400;
-  transition: all 0.25s ease-in;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    color: #5596e6;
+  }
 `;
