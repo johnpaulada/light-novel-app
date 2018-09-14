@@ -8,4 +8,5 @@ export default styled.h1`
   font-size: 3.375em;
   text-shadow: 0 2px 4px #212121;
   transition: all 0.25s ease-in;
+  text-align: center;
 `;

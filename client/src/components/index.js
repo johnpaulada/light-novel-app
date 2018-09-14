@@ -2,6 +2,8 @@ import Banner from "./Banner";
 import CenterConstraint from "./CenterConstraint";
 import ChapterList from "./ChapterList";
 import ChapterListItem from "./ChapterListItem";
+import ChapterMenu from "./ChapterMenu";
+import ChapterMenuButton from "./ChapterMenuButton";
 import ChapterParagraph from "./ChapterParagraph";
 import ChapterTitle from "./ChapterTitle";
 import LandingContainer from "./LandingContainer";
@@ -18,6 +20,8 @@ export {
   CenterConstraint,
   ChapterList,
   ChapterListItem,
+  ChapterMenu,
+  ChapterMenuButton,
   ChapterParagraph,
   ChapterTitle,
   LandingContainer,

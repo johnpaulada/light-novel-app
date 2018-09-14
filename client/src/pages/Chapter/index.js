@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {
   CenterConstraint,
+  ChapterMenu,
+  ChapterMenuButton,
   ChapterParagraph,
   ChapterTitle,
   NovelContainer
@@ -18,35 +20,18 @@ class Chapter extends Component {
   backgroundColor = () => (this.state.dark ? "#272d33" : "#FAFAFA");
 
   render() {
+    const { dark } = this.state;
+
     return (
       <NovelContainer backgroundColor={this.backgroundColor()}>
-        <div
-          style={{
-            backgroundColor: "none",
-            width: "100%",
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingTop: "10px",
-            paddingBottom: "10px"
-          }}
-        >
-          <button
-            style={{
-              marginLeft: "10px",
-              background: "none",
-              border: "none",
-              color: "#333",
-              margin: "10px",
-              cursor: "pointer"
-            }}
-            onClick={this.toggleTheme}
-          >
+        <ChapterMenu>
+          <ChapterMenuButton dark={dark} onClick={this.toggleTheme}>
             Toggle Theme
-          </button>
-        </div>
+          </ChapterMenuButton>
+        </ChapterMenu>
         <CenterConstraint width="50vw">
-          <ChapterTitle dark={this.state.dark}>Overlord</ChapterTitle>
-          <ChapterParagraph dark={this.state.dark}>
+          <ChapterTitle dark={dark}>Overlord</ChapterTitle>
+          <ChapterParagraph dark={dark}>
             Life has its fortunes and its hardships. I believe these words of
             the old man of Mito is a wise saying. Life has its mountains and
             valleys. It is exactly because one climbed over adversity that one
