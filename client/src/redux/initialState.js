@@ -33,5 +33,6 @@ const hotNovels = [
 
 export default {
   hotNovels,
-  selectedNovel: null
+  selectedNovel: null,
+  selectedChapter: null
 };

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   CenterConstraint,
   ChapterMenu,
@@ -7,11 +8,23 @@ import {
   ChapterTitle,
   NovelContainer
 } from "../../components";
+import { fetchChapter } from "../../redux/actions";
+const { REACT_APP_API_URL: API_URL } = process.env;
 
 class Chapter extends Component {
   state = {
     dark: false
   };
+
+  loadChapter = () => {
+    const { novelId, id } = this.props;
+    const url = `${API_URL}/novels/${novelId}/chapters/${id}`;
+    this.props.getChapter(url);
+  };
+
+  componentDidMount() {
+    this.loadChapter();
+  }
 
   toggleTheme = () => {
     this.setState({ dark: !this.state.dark });
@@ -19,7 +32,27 @@ class Chapter extends Component {
 
   backgroundColor = () => (this.state.dark ? "#272d33" : "#FAFAFA");
 
+  renderContent = (content, props) => {
+    return [content]
+      .map(contentText => contentText.split("\n"))
+      .map(contentText => {
+        return contentText.map((text, index) => {
+          return (
+            <ChapterParagraph key={index} {...props}>
+              {text}
+            </ChapterParagraph>
+          );
+        });
+      })[0];
+  };
+
   render() {
+    const { selectedChapter } = this.props;
+
+    if (selectedChapter) {
+      console.log(selectedChapter.content.split("\n").length);
+    }
+
     const { dark } = this.state;
 
     return (
@@ -30,20 +63,26 @@ class Chapter extends Component {
           </ChapterMenuButton>
         </ChapterMenu>
         <CenterConstraint width="50vw">
-          <ChapterTitle dark={dark}>Overlord</ChapterTitle>
-          <ChapterParagraph dark={dark}>
-            Life has its fortunes and its hardships. I believe these words of
-            the old man of Mito is a wise saying. Life has its mountains and
-            valleys. It is exactly because one climbed over adversity that one
-            could sail down, and if one keeps taking the easy way down one would
-            soon find oneself surrounded by rising slopes. The conclusion is
-            therefore, a person should persevere through life’s climbs, but I
-            think different.
-          </ChapterParagraph>
+          <ChapterTitle dark={dark}>
+            Chapter {selectedChapter && selectedChapter.number}
+          </ChapterTitle>
+          {selectedChapter &&
+            this.renderContent(selectedChapter.content, { dark })}
         </CenterConstraint>
       </NovelContainer>
     );
   }
 }
 
-export default Chapter;
+const mapStateAsProps = ({ selectedChapter }) => ({
+  selectedChapter
+});
+
+const mapDispatchAsProps = dispatch => ({
+  getChapter: url => dispatch(fetchChapter(url))
+});
+
+export default connect(
+  mapStateAsProps,
+  mapDispatchAsProps
+)(Chapter);
